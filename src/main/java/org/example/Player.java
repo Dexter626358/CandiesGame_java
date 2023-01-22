@@ -5,8 +5,8 @@ import java.util.Scanner;
 public class Player {
     StateGame stateGame;
 
-    public Player(){
-        stateGame = new StateGame();
+    public Player(StateGame stateGame){
+        this.stateGame = stateGame;
     }
 
     public void player() {
@@ -14,7 +14,7 @@ public class Player {
         Scanner scan = new Scanner(System.in);
         System.out.println("Введите количество конфет: ");
         String ask_candies = scan.next();
-        if (ask_candies.matches("-?\\d+")) {
+        if (ask_candies.matches("^-?\\d+$")) {
             if (stateGame.getCandies() < Integer.parseInt(ask_candies)) {
                 System.out.println("Слишком мало конфет. Попробуйте ввести другое число");
             } else {

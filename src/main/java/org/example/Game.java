@@ -7,19 +7,17 @@ public class Game {
         boolean flag = firstPlayer.firstPlayer();
         StateGame stateGame = new StateGame();
         PrintState print = new PrintState();
+        Player player = new Player(stateGame);
+        Computer comp = new Computer(stateGame);
         while (true) {
             if (flag) {
                 System.out.println("Ваш ход...");
-                Player player = new Player();
                 player.player();
                 flag = false;
 
             } else {
                 System.out.println("играет компьютер...");
-                Computer comp = new Computer(stateGame.getCandies(), stateGame.getComputerScore());
                 comp.computer();
-                stateGame.setCandies(comp.getCandies());
-                stateGame.setComputerScore(comp.getComputerScore());
                 flag = true;
             }
             System.out.println(print.printCandies());
